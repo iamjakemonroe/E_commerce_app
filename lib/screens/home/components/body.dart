@@ -18,10 +18,27 @@ class Body extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ))),
         const Categories(),
-        Container(
-          height: 180,
-          width: 160,
-          decoration: BoxDecoration(color: products[0].color),
+        Column(
+          children: [
+            Container(
+              height: 180,
+              width: 160,
+              margin: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+              padding: const EdgeInsets.all(kDefaultPadding),
+              decoration: BoxDecoration(
+                  color: products[0].color,
+                  borderRadius: BorderRadius.circular(16)),
+              child: Image.asset(products[0].image),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
+              child: Text(
+                products[0].title,
+                style: const TextStyle(color: kTextLightColor),
+              ),
+            )
+          ],
         )
       ],
     );
