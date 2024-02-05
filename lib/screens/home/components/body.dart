@@ -17,6 +17,10 @@ class Body extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ))),
         const Categories(),
+        const SizedBox(
+          height: 180,
+          width: 160,
+        )
       ],
     );
   }
