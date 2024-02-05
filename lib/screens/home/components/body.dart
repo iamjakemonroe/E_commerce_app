@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/constant.dart';
+import 'package:shopping_app/models/Product.dart';
 import 'categories.dart';
 
 class Body extends StatelessWidget {
@@ -17,9 +18,10 @@ class Body extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ))),
         const Categories(),
-        const SizedBox(
+        Container(
           height: 180,
           width: 160,
+          decoration: BoxDecoration(color: products[0].color),
         )
       ],
     );
