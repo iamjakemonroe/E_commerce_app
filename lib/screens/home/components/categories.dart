@@ -11,7 +11,13 @@ class Categories extends StatefulWidget {
 class _CategoriesState extends State<Categories>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  List<String> categories = ["Hand bag", "Jewerries", "Footwear", "Dresses"];
+  List<String> categories = [
+    "Hand bag",
+    "Jewerries",
+    "Footwear",
+    "Dresses",
+    "Hats"
+  ];
   int selectedIndex = 0;
 
   @override
