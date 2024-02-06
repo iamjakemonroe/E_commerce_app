@@ -4,38 +4,44 @@ import 'package:shopping_app/models/Product.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
-  // final Function press;
+  final Function press;
   const ProductCard({
     super.key,
     required this.product,
-    // required this.press,
+    required this.press,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          child: Container(
-            padding: const EdgeInsets.all(kDefaultPadding),
-            decoration: BoxDecoration(
-                color: product.color, borderRadius: BorderRadius.circular(16)),
-            child: Image.asset(product.image),
+    return GestureDetector(
+      onTap: () {
+        press();
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(kDefaultPadding),
+              decoration: BoxDecoration(
+                  color: product.color,
+                  borderRadius: BorderRadius.circular(16)),
+              child: Image.asset(product.image),
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
-          child: Text(
-            product.title,
-            style: const TextStyle(color: kTextLightColor),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
+            child: Text(
+              product.title,
+              style: const TextStyle(color: kTextLightColor),
+            ),
           ),
-        ),
-        Text(
-          "\$${product.price}",
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        )
-      ],
+          Text(
+            "\$${product.price}",
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          )
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/constant.dart';
 import 'package:shopping_app/models/Product.dart';
+import 'package:shopping_app/screens/details/details_screen.dart';
 import 'package:shopping_app/screens/home/components/product_card.dart';
 import 'categories.dart';
 
@@ -30,11 +31,38 @@ class Body extends StatelessWidget {
               mainAxisSpacing: kDefaultPadding,
               crossAxisSpacing: kDefaultPadding,
             ),
-            itemBuilder: (context, index) =>
-                ProductCard(product: products[index]),
+            itemBuilder: (context, index) => ProductCard(
+                product: products[index],
+                press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            DetailsScreen(product: products[index])))),
           ),
         ))
       ],
     );
   }
 }
+
+// void _showAlertDialog(BuildContext context, Product product) {
+//   Future.delayed(Duration.zero, () {
+//     showDialog(
+//       context: context,
+//       builder: (BuildContext context) {
+//         return AlertDialog(
+//           title: const Text("Product Selected"),
+//           content: Text("You selected: ${product.title}"),
+//           actions: <Widget>[
+//             TextButton(
+//               onPressed: () {
+//                 Navigator.of(context).pop();
+//               },
+//               child: const Text("Close"),
+//             ),
+//           ],
+//         );
+//       },
+//     );
+//   });
+// }
