@@ -20,7 +20,7 @@ class TitleImageDetail extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Aristocratic hand bag',
+            'hand bags',
             style: TextStyle(color: Colors.white),
           ),
           Text(
