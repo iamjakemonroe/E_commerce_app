@@ -29,11 +29,11 @@ class DetailedBody extends StatelessWidget {
                       topRight: Radius.circular(24),
                     ),
                   ),
-                  child: const Column(
+                  child: Column(
                     children: [
                       Row(
                         children: [
-                          Column(
+                          const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text("Color"),
@@ -43,12 +43,23 @@ class DetailedBody extends StatelessWidget {
                                     color: Color(0xFF356C95),
                                     isSelected: true,
                                   ),
-                                  ColorSelect(color: Color(0xFF356C95)),
-                                  ColorSelect(color: Color(0xFF356C95)),
+                                  ColorSelect(color: Color(0xFFF8C078)),
+                                  ColorSelect(color: Color(0xFFA29B9B)),
                                 ],
                               ),
                             ],
-                          )
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              style: const TextStyle(color: kTextColor),
+                              children: [
+                                const TextSpan(text: 'Size'),
+                                TextSpan(
+                                  text: '${product.size}',
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       )
                     ],
