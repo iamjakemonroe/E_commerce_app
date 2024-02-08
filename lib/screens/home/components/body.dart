@@ -45,6 +45,8 @@ class Body extends StatelessWidget {
   }
 }
 
+// alert dialog
+
 // void _showAlertDialog(BuildContext context, Product product) {
 //   Future.delayed(Duration.zero, () {
 //     showDialog(
