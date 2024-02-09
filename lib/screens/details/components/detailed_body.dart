@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/constant.dart';
 import 'package:shopping_app/models/Product.dart';
+import 'package:shopping_app/screens/details/components/color_and_size.dart';
 import 'package:shopping_app/screens/details/components/title_image_detail.dart';
 
 class DetailedBody extends StatelessWidget {
@@ -30,75 +31,13 @@ class DetailedBody extends StatelessWidget {
                     ),
                   ),
                   child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Color"),
-                              Row(
-                                children: [
-                                  ColorSelect(
-                                    color: Color(0xFF356C95),
-                                    isSelected: true,
-                                  ),
-                                  ColorSelect(color: Color(0xFFF8C078)),
-                                  ColorSelect(color: Color(0xFFA29B9B)),
-                                ],
-                              ),
-                            ],
-                          ),
-                          RichText(
-                            text: TextSpan(
-                              style: const TextStyle(color: kTextColor),
-                              children: [
-                                const TextSpan(text: 'Size'),
-                                TextSpan(
-                                  text: '${product.size}',
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
+                    children: [ColorAndSize(product: product)],
                   ),
                 ),
                 TitleImageDetail(product: product)
               ],
             ))
       ]),
-    );
-  }
-}
-
-class ColorSelect extends StatelessWidget {
-  final Color color;
-  final bool isSelected;
-  const ColorSelect({
-    super.key,
-    required this.color,
-    this.isSelected = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 24,
-      height: 24,
-      margin: const EdgeInsets.only(
-          top: kDefaultPadding / 4, right: kDefaultPadding / 2),
-      padding: const EdgeInsets.all(2.5),
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(
-          color: isSelected ? color : Colors.transparent,
-        ),
-      ),
-      child: DecoratedBox(
-        decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-      ),
     );
   }
 }
