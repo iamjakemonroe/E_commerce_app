@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/constant.dart';
 import 'package:shopping_app/models/Product.dart';
+import 'package:shopping_app/screens/details/components/add_to_cart.dart';
 import 'package:shopping_app/screens/details/components/color_and_size.dart';
+import 'package:shopping_app/screens/details/components/counter_and_favbtn.dart';
+import 'package:shopping_app/screens/details/components/description.dart';
 import 'package:shopping_app/screens/details/components/title_image_detail.dart';
 
 class DetailedBody extends StatelessWidget {
@@ -31,7 +34,15 @@ class DetailedBody extends StatelessWidget {
                     ),
                   ),
                   child: Column(
-                    children: [ColorAndSize(product: product)],
+                    children: [
+                      ColorAndSize(product: product),
+                      const SizedBox(height: kDefaultPadding / 2),
+                      Description(product: product),
+                      const SizedBox(height: kDefaultPadding / 2),
+                      const CounterAndFavBtn(),
+                      const SizedBox(height: kDefaultPadding / 2),
+                      AddToCart(product: product)
+                    ],
                   ),
                 ),
                 TitleImageDetail(product: product)
